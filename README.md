@@ -14,3 +14,4 @@ learning resources in a tile view (via shortcode).
 1. Install the plugin
 2. Install Advanced Custom Fields
 3. Add a custom field 'Link', applying only to post type 'ofn_learnable'
+4. Add categories for Learnable post type: Resource, Model, Story

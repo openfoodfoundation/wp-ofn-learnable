@@ -25,5 +25,6 @@
 */
 
 
+require_once(__DIR__ . '/lib/assets.php');
 require_once(__DIR__ . '/lib/post_type.php');
 require_once(__DIR__ . '/lib/shortcodes.php');
