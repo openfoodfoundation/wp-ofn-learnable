@@ -1,0 +1,18 @@
+<?php
+
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+  register_post_type( 'ofn_learnable',
+    array(
+      'labels' => array(
+        'name' => __( 'Learnables' ),
+        'singular_name' => __( 'Learnable' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array('slug' => 'learnable'),
+      'taxonomies' => array('category', 'post_tag'),
+      'supports' => array('title', 'thumbnail', 'revisions'),
+    )
+  );
+}
