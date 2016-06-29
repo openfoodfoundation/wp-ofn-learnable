@@ -6,7 +6,12 @@ function create_post_type() {
     array(
       'labels' => array(
         'name' => __( 'Learnables' ),
-        'singular_name' => __( 'Learnable' )
+        'singular_name' => __( 'Learnable' ),
+        'add_new_item' => __( 'Add New Learnable' ),
+        'edit_item' => __( 'Edit Learnable' ),
+        'new_item' => __( 'New Learnable' ),
+        'view_item' => __( 'View Learnable' ),
+        'all_items' => __( 'All Learnables' ),
       ),
       'public' => true,
       'has_archive' => true,
