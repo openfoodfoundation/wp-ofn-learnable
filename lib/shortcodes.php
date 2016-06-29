@@ -10,11 +10,15 @@ function ofn_learnable_all($atts) {
         $loop->the_post();
 
         $title = get_the_title();
+
         $image = wp_get_attachment_url(get_post_thumbnail_id());
+        $image_meta = wp_get_attachment_metadata(get_post_thumbnail_id());
+        $image_height = ofn_learnable_image_height($image_meta);
+
         $category = get_the_category()[0]->name;
         $link = get_field('link');
 
-        $html .= ofn_learnable_as_html($title, $image, $category, $link);
+        $html .= ofn_learnable_as_html($title, $image, $image_height, $category, $link);
     }
 
     $html .= '</div>';
@@ -24,10 +28,10 @@ function ofn_learnable_all($atts) {
 add_shortcode('learnable_all', 'ofn_learnable_all');
 
 
-function ofn_learnable_as_html($title, $image, $category, $link) {
+function ofn_learnable_as_html($title, $image, $image_height, $category, $link) {
     $html = '';
 
-    $html .= '<div class="ofn-learnable" style="background-image: url('.$image.');">'."\n";
+    $html .= '<div class="ofn-learnable" style="background-image: url('.$image.'); height: '.$image_height.'px;">'."\n";
     $html .= '  <a href="'.$link.'">'."\n";
     $html .= '    <div class="title">'.$title.'</div>'."\n";
     $html .= "\n";
@@ -38,4 +42,10 @@ function ofn_learnable_as_html($title, $image, $category, $link) {
     $html .= '</div>'."\n";
 
     return $html;
+}
+
+function ofn_learnable_image_height($image_meta) {
+    $image_width = 364;
+
+    return round($image_width / $image_meta['width'] * $image_meta['height']);
 }
