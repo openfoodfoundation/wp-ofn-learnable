@@ -1,9 +1,19 @@
+.ofn-learnables {
+  margin: 0 auto;
+}
+
 .ofn-learnable {
   position: relative;
   width: 364px;
   margin: 1px;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media screen and (max-width: 400px) {
+  .ofn-learnable {
+    width: 258px;
+  }
 }
 
 .ofn-learnable a {

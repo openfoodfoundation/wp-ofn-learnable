@@ -1,3 +1,5 @@
 jQuery(document).ready(function() {
-  jQuery(".ofn-learnables").masonry();
+  jQuery(".ofn-learnables").masonry({
+    isFitWidth: true
+  });
 });
