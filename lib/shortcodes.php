@@ -1,7 +1,7 @@
 <?php
 
 function ofn_learnable_all($atts) {
-    $html = '';
+    $html = '<div class="ofn-learnables">'."\n";
 
     $args = array('post_type' => 'ofn_learnable');
     $loop = new WP_Query($args);
@@ -16,6 +16,8 @@ function ofn_learnable_all($atts) {
 
         $html .= ofn_learnable_as_html($title, $image, $category, $link);
     }
+
+    $html .= '</div>';
 
     return $html;
 }
