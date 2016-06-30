@@ -1,8 +1,8 @@
 <?php
 
-add_action( 'init', 'create_post_type' );
+add_action('init', 'create_post_type');
 function create_post_type() {
-  register_post_type( 'ofn_learnable',
+  register_post_type('ofn_learnable',
     array(
       'labels' => array(
         'name' => __( 'Learnables' ),
