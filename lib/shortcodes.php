@@ -13,12 +13,12 @@ function ofn_learnable_all($atts) {
 
         $image = wp_get_attachment_url(get_post_thumbnail_id());
         $image_meta = wp_get_attachment_metadata(get_post_thumbnail_id());
-        $image_height = ofn_learnable_image_height($image_meta);
+        $tile_height = ofn_learnable_tile_height($image_meta);
 
         $category = ofn_learnable_category(get_the_category());
         $link = get_field('link');
 
-        $html .= ofn_learnable_as_html($title, $image, $image_height, $category, $link);
+        $html .= ofn_learnable_as_html($title, $image, $tile_height, $category, $link);
     }
 
     $html .= '</div>';
@@ -28,10 +28,10 @@ function ofn_learnable_all($atts) {
 add_shortcode('learnable_all', 'ofn_learnable_all');
 
 
-function ofn_learnable_as_html($title, $image, $image_height, $category, $link) {
+function ofn_learnable_as_html($title, $image, $tile_height, $category, $link) {
     $html = '';
 
-    $html .= '<div class="ofn-learnable" style="background-image: url('.$image.'); height: '.$image_height.'px;">'."\n";
+    $html .= '<div class="ofn-learnable" style="background-image: url('.$image.'); height: '.$tile_height.'px;">'."\n";
     $html .= '  <a href="'.$link.'">'."\n";
     $html .= '    <div class="title">'.$title.'</div>'."\n";
     $html .= "\n";
@@ -48,8 +48,11 @@ function ofn_learnable_category($category) {
     return $category[0]->name;
 }
 
-function ofn_learnable_image_height($image_meta) {
-    $image_width = 364;
+// Calculate the desired height of the tile (which has a fixed width)
+// to match the aspect ratio of the background image.
+function ofn_learnable_tile_height($image_meta) {
+    $tile_width = 364;
+    $ratio = $image_meta['height'] / $image_meta['width'];
 
-    return round($image_width / $image_meta['width'] * $image_meta['height']);
+    return round($tile_width * $ratio);
 }
