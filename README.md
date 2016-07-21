@@ -15,4 +15,4 @@ learning resources in a tile view (via shortcode).
 2. Install the plugin
 3. Add a custom field 'Link', applying only to post type 'ofn_learnable'
 4. Add categories for Learnable post type: Resource, Model, Story
-5. Use the shortcode `[learnable_all]` to display all learnables in tile view.
+5. Use the shortcode `[learnables]` to display all learnables in tile view.

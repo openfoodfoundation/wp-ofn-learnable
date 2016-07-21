@@ -1,6 +1,6 @@
 <?php
 
-function ofn_learnable_all($atts) {
+function ofn_learnables($atts) {
     $html = '<div class="ofn-learnables">'."\n";
 
     $args = array('post_type' => 'ofn_learnable');
@@ -25,7 +25,7 @@ function ofn_learnable_all($atts) {
 
     return $html;
 }
-add_shortcode('learnable_all', 'ofn_learnable_all');
+add_shortcode('learnables', 'ofn_learnables');
 
 
 function ofn_learnable_as_html($title, $image, $tile_height, $category, $link) {
