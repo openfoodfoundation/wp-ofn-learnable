@@ -1,9 +1,17 @@
 <?php
 
 function ofn_learnables($atts) {
+    $a = shortcode_atts( array('tags' => ''), $atts );
+
     $html = '<div class="ofn-learnables">'."\n";
 
     $args = array('post_type' => 'ofn_learnable');
+    if($a['tags'] != '') {
+        // When two or more tags are given (eg. "warragul,animals"), display learnables which
+        // are tagged with both.
+        // cf. tag_slug__in
+        $args['tag_slug__and'] = explode(',', $a['tags']);
+    }
     $loop = new WP_Query($args);
 
     while($loop->have_posts()) {
