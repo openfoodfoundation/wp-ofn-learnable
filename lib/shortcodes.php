@@ -41,7 +41,8 @@ add_shortcode('learnables', 'ofn_learnables');
 function ofn_learnables_filter($atts) {
     $tags = ofn_learnable_tags();
 
-    $html = '<ul class="ofn-learnables-filter">';
+    $html  = '<h3>Filter by tag</h3>';
+    $html .= '<ul class="ofn-learnables-filter">';
 
     foreach($tags as $tag) {
         $html .= "<li><a href=\"#\" data-tag=\"tag-$tag->slug\">$tag->name</a></li>\n";
