@@ -8,10 +8,18 @@ jQuery(document).ready(function() {
     jQuery(this).parent().toggleClass("active");
 
     var filter = jQuery(this).parent().parent();
+    refresh_filter(filter);
+  });
+
+  // On page load, apply tag filter
+  refresh_filter(jQuery(".ofn-learnables"));
+
+
+  function refresh_filter(filter) {
     var tags = active_tags(filter);
     update_tag_visibility(tags);
     learnables.masonry('layout');
-  });
+  }
 
   function active_tags(filter) {
     var lis = filter.find("li.active");
@@ -30,6 +38,9 @@ jQuery(document).ready(function() {
     jQuery(".ofn-learnable").show();
     if(tags.length > 0) {
       jQuery(".ofn-learnable").not(tags).hide();
+    } else {
+      // When no tags are selected, show only items tagged with "featured"
+      jQuery(".ofn-learnable").not(".tag-featured").hide();
     }
   }
 });
