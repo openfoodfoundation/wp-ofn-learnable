@@ -19,5 +19,7 @@ learning resources in a tile view (via shortcode).
 ## Usage
 
 - Use the shortcode `[learnables]` to display all learnables in tile view.
-- Learnables can be filtered by tags. eg. `[learnables tags='warragul']` shows only learnables tagged with 'warragul'.
+- Learnables can be displayed by tags. eg. `[learnables tags='warragul']` shows only learnables tagged with 'warragul'.
   `[learnables tags='warragul,animals']` shows learnables tagged with *both* 'warragul' and 'animals'.
+- Learnables can be filtered. Add a shortcode `[learnables_filter]` to show the tag filter interface. When one or more tags are
+  selected, only learnables that match **all** those tags will be shown.
