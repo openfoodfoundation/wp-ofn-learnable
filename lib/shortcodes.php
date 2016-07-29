@@ -5,7 +5,7 @@ function ofn_learnables($atts) {
 
     $html = '<div class="ofn-learnables">'."\n";
 
-    $args = array('post_type' => 'ofn_learnable');
+    $args = array('post_type' => 'ofn_learnable', 'nopaging' => true);
     if($a['tags'] != '') {
         // When two or more tags are given (eg. "warragul,animals"), display learnables which
         // are tagged with both.
