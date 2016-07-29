@@ -38,6 +38,20 @@ function ofn_learnables($atts) {
 add_shortcode('learnables', 'ofn_learnables');
 
 
+function ofn_learnables_filter($atts) {
+    $tags = ofn_learnable_tags();
+
+    $html = '';
+
+    foreach($tags as $tag) {
+        $html .= $tag->name ."<br />";
+    }
+
+    return $html;
+}
+add_shortcode('learnables_filter', 'ofn_learnables_filter');
+
+
 function ofn_learnable_as_html($title, $image, $tile_height, $tags, $category, $link) {
     $html = '';
 
@@ -81,4 +95,21 @@ function ofn_learnable_tile_height($image_meta) {
     $ratio = $image_meta['height'] / $image_meta['width'];
 
     return round($tile_width * $ratio);
+}
+
+// Fetch all tags applied to any learnable
+function ofn_learnable_tags() {
+    global $wpdb;
+
+    $sql = "SELECT DISTINCT $wpdb->terms.* FROM $wpdb->terms
+            JOIN $wpdb->term_taxonomy
+              ON ($wpdb->term_taxonomy.term_id = $wpdb->terms.term_id AND
+                  $wpdb->term_taxonomy.taxonomy = 'post_tag')
+            JOIN $wpdb->term_relationships
+              ON ($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id)
+            JOIN $wpdb->posts
+              ON ($wpdb->posts.ID = $wpdb->term_relationships.object_id)
+            WHERE $wpdb->posts.post_type='ofn_learnable'";
+
+    return $wpdb->get_results($sql);
 }
