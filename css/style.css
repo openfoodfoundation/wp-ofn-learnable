@@ -52,3 +52,22 @@
 .ofn-learnable .category-story {
   background-color: #b3d97f;
 }
+
+
+/* Tag Filter */
+ul.ofn-learnables-filter {
+  overflow: auto;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 1em;
+}
+ul.ofn-learnables-filter li {
+  float: left;
+  margin-right: 1em;
+  padding: 0px 8px;
+  border: 1px solid #777;
+  border-radius: 14px;
+}
+ul.ofn-learnables-filter li.active {
+  background-color: #ddd;
+}
