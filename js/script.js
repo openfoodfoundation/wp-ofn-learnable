@@ -18,8 +18,9 @@ jQuery(document).ready(function() {
     var active_tags = "";
 
     for(var i=0; i < lis.length; i++) {
-      var li = jQuery(lis[i]);
-      active_tags += ".tag-"+li.text();
+      var tag = jQuery(lis[i]).find("a").data('tag');
+
+      active_tags += ".tag-"+tag;
     }
 
     return active_tags;

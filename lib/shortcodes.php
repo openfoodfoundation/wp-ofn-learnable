@@ -45,7 +45,7 @@ function ofn_learnables_filter($atts) {
     $html .= '<ul class="ofn-learnables-filter">';
 
     foreach($tags as $tag) {
-        $html .= "<li><a href=\"#\" data-tag=\"tag-$tag->slug\">$tag->name</a></li>\n";
+        $html .= "<li><a href=\"#\" data-tag=\"$tag->slug\">$tag->name</a></li>\n";
     }
 
     $html .= '</ul>';
