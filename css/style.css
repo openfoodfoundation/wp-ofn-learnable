@@ -63,10 +63,12 @@ ul.ofn-learnables-filter {
 }
 ul.ofn-learnables-filter li {
   float: left;
-  margin-right: 1em;
-  padding: 0px 8px;
+  margin: 0 2px 2px 0;
+  padding: 0px 6px;
   border: 1px solid #777;
   border-radius: 14px;
+  font-size: 12px;
+  line-height: 20px;
 }
 ul.ofn-learnables-filter li.active {
   background-color: #ddd;
