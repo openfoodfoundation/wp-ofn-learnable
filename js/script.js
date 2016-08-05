@@ -37,9 +37,8 @@ jQuery(document).ready(function() {
   }
 
   function update_tag_visibility(tags) {
-    // When no filters selected, show featured learnables
     if(tags.length == 0) {
-      tags = ".tag-featured";
+      tags = "*";
     }
 
     jQuery(".ofn-learnables").isotope({filter: tags})
