@@ -112,7 +112,8 @@ function ofn_learnable_tags() {
               ON ($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id)
             JOIN $wpdb->posts
               ON ($wpdb->posts.ID = $wpdb->term_relationships.object_id)
-            WHERE $wpdb->posts.post_type='ofn_learnable'";
+            WHERE $wpdb->posts.post_type='ofn_learnable'
+            ORDER BY $wpdb->terms.name";
 
     return $wpdb->get_results($sql);
 }
