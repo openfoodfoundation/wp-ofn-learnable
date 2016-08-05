@@ -1,6 +1,9 @@
 jQuery(document).ready(function() {
   var learnables = jQuery(".ofn-learnables").isotope({
-    isFitWidth: true
+    isFitWidth: true,
+    hiddenStyle:  { opacity: 0 },
+    visibleStyle: { opacity: 1 },
+    transitionDuration: '0.6s'
   });
 
   jQuery("ul.ofn-learnables-filter li a").click(function(e) {
